@@ -22,7 +22,6 @@ const store = new MongoDBStore({
 });
 const csrfProtection = csrf();
 
-// configura local onde será guardado as imagens
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images");
@@ -32,7 +31,6 @@ const fileStorage = multer.diskStorage({
   }
 });
 
-// configura o que pode ser guardado nas imagens
 const fileFilter = (req, file, cb) => {
   if (
     file.mimetype === "image/png" ||
